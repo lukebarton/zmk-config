@@ -173,9 +173,9 @@ SIMPLE_MORPH(dot_inner_morph, CTL, &kp COLON, &kp GREATER_THAN)
 // tap: qmark | shift + tap: excl
 SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
 
-// tap: left/right parenthesis | shft + tap: less-than/greater-than
-SIMPLE_MORPH(lpar_lt, SFT, &kp LPAR, &kp LT)
-SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
+// tap: left/right parenthesis | shft + tap: left/right braces
+SIMPLE_MORPH(lpar_lt, SFT, &kp LPAR, &kp LBRC)
+SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp RBRC)
 
 // tap: space | shift + tap: dot -> space -> sticky shift | hold: activate layer
 ZMK_HOLD_TAP(lt_spc,
@@ -226,13 +226,13 @@ ZMK_CONDITIONAL_LAYER(FN NUM, SYS)  // FN + NUM --> SYS
 
 ZMK_LAYER(base,
 //╭──────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭──────╮
-    X_LT     &kp B         &kp L         &kp D         &kp C         &kp V           &kp J         &kp Y         &kp O         &kp U         &kp COMMA       X_RT
+    X_LT     &kp B         &kp L         &kp D         &kp C         &kp V           &kp J         &kp Y         &kp O         &kp U         &comma_morph    X_RT
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
     X_LM     &hml LCTRL N   &hml LALT R   &hml LGUI T  &hml LSHFT S  &kp G           &kp P         &hmr RSHFT H  &hmr LGUI A   &hmr LALT E   &hmr LCTRL I    X_RM
 //├──────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├──────┤
-    X_LB     &kp X         &kp Q         &kp M         &kp W         &kp Z           &kp K         &kp F         &kp SQT       &kp SEMI      &kp PERIOD      X_RB
+    X_LB     &kp X         &kp Q         &kp M         &kp W         &kp Z           &kp K         &kp F         &kp SQT       &kp SEMI      &dot_morph      X_RB
 //╰──────╯ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ ╰──────╯
-                                         &none         &lt_spc NAV 0 &lt FN RET      &kp BSPC      &smart_shft   SMART_NUM   
+                                         &none         &lt_spc NAV 0 &lt FN RET      &bs_del        &smart_shft   SMART_NUM   
 //                                     ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
